@@ -1,28 +1,19 @@
 package com.example.lab3_cpen252;
-
 import android.os.Bundle;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.lab3_cpen252.databinding.ActivityMainBinding;
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 public class MainActivity extends AppCompatActivity {
-
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,53 +35,46 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        // Class lab3
     }
 
     // Class lab3
 
     public static void main(String[] args) {
-        Note note1 = new Note();
-        User user1 = new User();
+//        Note note1 = new TextNote();
+//        User user1 = new User();
 
-        note1.title = "Introduction to Java";
-        note1.content = "Java is a high-level programming language developed by Sun Microsystems...";
-        note1.createdDate = "2025-07-17";
-        note1.getSummary();
+//        note1.title = "Introduction to Java";
+//        note1.content = "Java is a high-level programming language developed by Sun Microsystems...";
+//        note1.createdDate = "2025-07-17";
+//        note1.getSummary();
+
+        TextNote textNote1 = new TextNote();
+        textNote1.title = "Introduction to Java";
+        //textNote1.content = "Java is a high-level programming language developed by Sun Microsystems...";
+        textNote1.setTextContent = "Java is a high-level programming language developed by Sun Microsystems...";
+        textNote1.createdDate = "2025-07-17";
+        textNote1.getSummary();
 
 
-        user1.username = "zero";
-        user1.password = "StrongPass!2025";
-        user1.email = "zero@example.com";
-        user1.information();
-        user1.logout();
+//        user1.username = "zero";
+//        user1.password = "StrongPass!2025";
+//        user1.email = "zero@example.com";
+//        user1.information();
+//        user1.logout();
+
+        AdminUser admin = new AdminUser();
+        admin.setUsername("admin01");
+        admin.setPassword("1234");
+        admin.setEmail("admin@mail.com");
+        admin.information();
+        admin.logout();
+
+        CustomerUser customer = new CustomerUser();
+        customer.setUsername("zero");
+        customer.setPassword("StrongPass!2025");
+        customer.setEmail("zero@example.com");
+        customer.information();
+        customer.logout();
     }
 }

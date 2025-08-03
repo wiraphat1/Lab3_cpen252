@@ -1,16 +1,9 @@
 package com.example.lab3_cpen252;
+//import java.util.Data;
 
-public class Note {
-    //Attribute
-    String title;
-    String content;
-    String createdDate;
+public abstract class Note {
+    protected String title;
+    protected String createdDate;
 
-    //Method
-    void getSummary() {
-        System.out.println("Note");
-        System.out.println("title: " + title);
-        System.out.println("content: " + content);
-        System.out.println("createdDate: " + createdDate);
-    }
+    public abstract String getSummary();
 }
