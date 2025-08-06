@@ -4,7 +4,15 @@ import java.util.List;
 
 public class CheckListNote extends Note {
     private List<String> items;
+    //getter
+    //setter
+    public List<String> getItems() {
+        return items;
+    }
 
+    public void setItems(List<String> items) {
+        this.items = items;
+    }
 
     public String getSummary() {
         String strItems = "";
